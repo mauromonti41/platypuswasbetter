@@ -52,16 +52,6 @@ struct Ending3: View{
         ZStack{
             Image(uiImage: UIImage(named: "MainPage3.png")!)
 //            Sostituisci 'MainPage3.png' con le lettere
-        Button(action:{},
-               label: {
-            Text("Continue")
-                .bold()
-                .font(Font.custom("American Typewriter", size: 20.0))
-                .foregroundColor(.brown)
-                .frame(width: 400, height: 600)
-                .shadow(radius: 10)
-                .offset(x: 0, y: 280)
-                })
         }
     }
 }
