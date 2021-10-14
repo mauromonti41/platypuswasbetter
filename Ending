@@ -1,0 +1,89 @@
+import SwiftUI
+import PlaygroundSupport
+import Foundation
+import AVFoundation
+import CoreMedia
+import UIKit
+
+PlaygroundPage.current.setLiveView(Ending1())
+
+// Last Views
+
+struct Ending1: View{
+    var body: some View {
+        ZStack{
+            Image(uiImage: UIImage(named: "MainPage3.png")!)
+//            Sostituisci 'MainPage3.png' con le lettere
+        Button(action:{PlaygroundPage.current.setLiveView(Ending2())},
+               label: {
+            Text("Continue")
+                .bold()
+                .font(Font.custom("American Typewriter", size: 20.0))
+                .foregroundColor(.brown)
+                .frame(width: 400, height: 600)
+                .shadow(radius: 10)
+                .offset(x: 0, y: 280)
+                })
+        }
+    }
+}
+
+struct Ending2: View{
+    var body: some View {
+        ZStack{
+            Image(uiImage: UIImage(named: "MainPage3.png")!)
+//            Sostituisci 'MainPage3.png' con le lettere
+        Button(action:{PlaygroundPage.current.setLiveView(Ending3())},
+               label: {
+            Text("Continue")
+                .bold()
+                .font(Font.custom("American Typewriter", size: 20.0))
+                .foregroundColor(.brown)
+                .frame(width: 400, height: 600)
+                .shadow(radius: 10)
+                .offset(x: 0, y: 280)
+                })
+        }
+    }
+}
+
+struct Ending3: View{
+    var body: some View {
+        ZStack{
+            Image(uiImage: UIImage(named: "MainPage3.png")!)
+//            Sostituisci 'MainPage3.png' con le lettere
+        Button(action:{},
+               label: {
+            Text("Continue")
+                .bold()
+                .font(Font.custom("American Typewriter", size: 20.0))
+                .foregroundColor(.brown)
+                .frame(width: 400, height: 600)
+                .shadow(radius: 10)
+                .offset(x: 0, y: 280)
+                })
+        }
+    }
+}
+
+var player: AVAudioPlayer?
+
+func playSound() {
+    guard let url = Bundle.main.url(forResource: "ending", withExtension: "mp3") else { return }
+
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+
+
+        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        
+        guard let player = player else { return }
+
+        player.play()
+
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+playSound()
