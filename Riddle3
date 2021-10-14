@@ -1,0 +1,368 @@
+import SwiftUI
+import PlaygroundSupport
+import Foundation
+import AVFoundation
+import CoreMedia
+import UIKit
+
+PlaygroundPage.current.setLiveView(Riddle3())
+
+struct Riddle3: View {
+
+    var body: some View {
+        VStack {
+            var display = ""
+            VStack{
+                Image(uiImage: UIImage(named: "3Riddle.jpeg")!)
+                        .resizable()
+                                            .scaledToFit()
+                                            .padding(2)
+                                            .cornerRadius(5)
+                                            .padding(5)
+                                            .background(Color.black)
+                                            .cornerRadius(5)
+                                            .frame(width: 360, height: 300)
+                Image(uiImage: UIImage(named: "barra.png")!)
+                    .resizable()
+                    .rotationEffect(.degrees(180))
+                Button("Hint") {
+                    PlaygroundPage.current.setLiveView(Hint())
+                }
+                .font(Font.custom("American Typewriter", size: 16.0))
+        HStack {
+            Button(action: {display += "1"; print(display)}) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("1")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                        .foregroundColor(.black)
+                        .padding(.all, 10.0)
+                } .frame(width: 30, height: 30)
+            }
+            .background(Color.gray)
+            .cornerRadius(5.0)
+            Button(action: {display += "2"; print(display)}) {
+            HStack(alignment: .center, spacing: 5.0) {
+                Text("2")
+                    .font(Font.custom("American Typewriter", size: 16.0))
+                    .foregroundColor(.black)
+                    .padding(.all, 10.0)
+            } .frame(width: 30, height: 30)
+        }
+        .background(Color.gray)
+        .cornerRadius(5.0)
+            Button(action: {display += "3"; print(display)}) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("3")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                        .foregroundColor(.black)
+                        .padding(.all, 10.0)
+                } .frame(width: 30, height: 30)
+            }
+            .background(Color.gray)
+            .cornerRadius(5.0)
+        }
+            HStack {
+            Button(action: {display += "4"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("4")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            Button(action: {display += "5"; print(display)}) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("5")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                        .foregroundColor(.black)
+                        .padding(.all, 10.0)
+                } .frame(width: 30, height: 30)
+            }
+            .background(Color.gray)
+            .cornerRadius(5.0)
+                Button(action: {display += "6"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("6")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            }
+            HStack {
+            Button(action: {display += "7"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("7")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            Button(action: {display += "8"; print(display)}) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("8")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                        .foregroundColor(.black)
+                        .padding(.all, 10.0)
+                } .frame(width: 30, height: 30)
+            }
+            .background(Color.gray)
+            .cornerRadius(5.0)
+                Button(action: {display += "9"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("9")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            }
+            HStack {
+                Button(action: {display += "#"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("#")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            Button(action: {display += "0"; print(display)}) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("0")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                        .foregroundColor(.black)
+                        .padding(.all, 10.0)
+                } .frame(width: 30, height: 30)
+            }
+            .background(Color.gray)
+            .cornerRadius(5.0)
+                Button(action: {display += "*"; print(display)}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("*")
+                            .font(Font.custom("American Typewriter", size: 16.0))
+                            .foregroundColor(.black)
+                            .padding(.all, 10.0)
+                    } .frame(width: 30, height: 30)
+                }
+                .background(Color.gray)
+                .cornerRadius(5.0)
+            }
+            HStack {
+                Button(action: {display = ""}) {
+                    HStack(alignment: .center, spacing: 5.0) {
+                        Text("✖️")
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding(.all, 10.0)
+                    } .frame(width: 50, height: 30)
+                }
+                .background(Color.red)
+                .cornerRadius(5.0)
+            
+            Button(action: {
+                if display == "30" {
+                    PlaygroundPage.current.setLiveView(RightChoice())
+                } else if display == "00" {
+                    PlaygroundPage.current.setLiveView(Platypus())
+                } else if display == "0" {
+                    PlaygroundPage.current.setLiveView(Platypus())
+                } else if display == "" {
+                    PlaygroundPage.current.setLiveView(Platypus())
+                } else {
+                    PlaygroundPage.current.setLiveView(WrongChoice())
+                }
+            }) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("✔️")
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.all, 10.0)
+                } .frame(width: 50, height: 30)
+            }
+            .background(Color.green)
+            .cornerRadius(5.0)
+        }
+                Image(uiImage: UIImage(named: "barra.png")!)
+                                        .resizable()
+            }
+            
+        }
+        .frame(width: 400, height: 600)
+    }
+}
+
+struct RightChoice: View {
+    var body: some View {
+        ZStack {
+        VStack {
+            Image(uiImage: UIImage(named: "barra.png")!)
+                .resizable()
+                .scaledToFit()
+                .rotationEffect(.degrees(180))
+            Text("That's right! Let's move on!")
+                .font(Font.custom("American Typewriter", size: 16.0))
+            Button("Click on 'Open the Box'") {
+                
+            }
+            .font(Font.custom("American Typewriter", size: 20.0))
+            .background(Color.blue.opacity(0.4))
+            .foregroundColor(.black)
+            .cornerRadius(10)
+            .buttonStyle(.bordered)
+            Image(uiImage: UIImage(named: "barra.png")!)
+                                    .resizable()
+                                    .scaledToFit()
+        }
+        .frame(width: 400, height: 600)
+            
+        }
+    }
+}
+
+struct WrongChoice: View {
+    var body: some View {
+        ZStack {
+        VStack {
+            VStack{
+                VStack {
+                    Image(uiImage: UIImage(named: "barra.png")!)
+                        .resizable()
+                        .scaledToFit()
+                        .rotationEffect(.degrees(180))
+                    Button("Hint") {
+                        PlaygroundPage.current.setLiveView(Hint())
+                    }
+                    Text("That's not right...")
+                        .font(Font.custom("American Typewriter", size: 16.0))
+                    Button("Retry") {
+                        PlaygroundPage.current.setLiveView(Riddle3())
+                    }
+                    .font(Font.custom("American Typewriter", size: 20.0))
+                    .background(Color.blue.opacity(0.4))
+                    .foregroundColor(.black)
+                    .cornerRadius(10)
+                    .buttonStyle(.bordered)
+                    Image(uiImage: UIImage(named: "barra.png")!)
+                                            .resizable()
+                                            .scaledToFit()
+                }
+        }
+        }
+        .frame(width: 400, height: 600)
+    }
+        
+    }
+}
+
+struct Platypus: View {
+    var body: some View {
+        
+        ZStack{
+            Image(uiImage: UIImage(named: "easter.jpeg")!)
+        VStack {
+            Button(action: {
+                playPlaty()
+            }) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    Text("  That's another story...  ")
+                        .font(Font.custom("American Typewriter", size: 20.0))
+                        .background(Color.green.opacity(0.8))
+                        .foregroundColor(.black)
+                        .cornerRadius(5)
+                        .buttonStyle(.bordered)
+                }.frame(width: 250, height: 150)
+            }
+            
+            Image(uiImage: UIImage(named: "platypus.png")!)
+                .resizable()
+                .scaledToFit()
+                .onTapGesture {
+                    PlaygroundPage.current.setLiveView(Riddle3())
+                    playSound()
+                }
+        }
+    }
+        .frame(width: 400, height: 600)
+}
+}
+
+struct Hint: View {
+    var body: some View {
+        ZStack {
+        VStack {
+            Image(uiImage: UIImage(named: "barra.png")!)
+                .resizable()
+                .scaledToFit()
+                .rotationEffect(.degrees(180))
+            Text("Simply adding together various combinations of 0, 1, 2, 4, 7, and 15 allows you to create every number from 1-29. Once you've worked that out, the answer to this puzzle should be obvious.")
+                .font(Font.custom("American Typewriter", size: 20.0))
+                .multilineTextAlignment(.center)
+                .padding(20)
+            Button("Return") {
+                PlaygroundPage.current.setLiveView(Riddle3())
+            }
+            .background(Color.blue.opacity(0.4))
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .buttonStyle(.bordered)
+            Image(uiImage: UIImage(named: "barra.png")!)
+                                    .resizable()
+                                    .scaledToFit()
+        }
+        .frame(width: 400, height: 600)
+        }
+    }
+    }
+
+var player: AVAudioPlayer?
+
+func playSound() {
+    guard let url = Bundle.main.url(forResource: "riddle3m", withExtension: "mp3") else { return }
+
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+
+
+        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        
+        guard let player = player else { return }
+
+        player.play()
+
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+playSound()
+
+func playPlaty() {
+    guard let url = Bundle.main.url(forResource: "platy", withExtension: "mp3") else { return }
+
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+
+
+        player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        
+        guard let player = player else { return }
+
+        player.play()
+
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+
+//:[Open the Box](Ending)
