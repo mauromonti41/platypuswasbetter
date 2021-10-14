@@ -1,0 +1,40 @@
+struct ContentView1: View {
+    
+    @State var scaledUp = true
+    
+    var body: some View {
+                VStack {
+                    Image(uiImage: UIImage(named: "Grafica6.jpg")!)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 400, height: 300)
+                        .border(Color.black, width: 10)
+                    Image(uiImage: UIImage(named: "barra.png")!)
+                        .resizable()
+                        .rotationEffect(.degrees(180))
+                    
+                    Text("Astonished by the behavior of the lawyer, Ethan and Liam leave and go away together. Once opened the letter they find a key and a note that says...")
+                        .frame(width: 400, height: 200)
+                        .font(Font.custom("American Typewriter", size: 20.0))
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                        .scaleEffect(scaledUp ? 0 : 1)
+                        .animation(.linear(duration: 0.9), value: scaledUp)
+                        .onTapGesture {scaledUp.toggle()}
+                            
+                    Button(action:{PlaygroundPage.current.setLiveView(ContentView2())},
+                           label: {
+                        Text("Continue")
+                            .bold()
+                            .font(Font.custom("American Typewriter", size: 20.0))
+                            .foregroundColor(.brown)
+                            .frame(width: 400, height: 100)
+                            .position(x: 200, y: 10)
+                            .shadow(radius: 10)
+                            })
+                    Image(uiImage: UIImage(named: "barra.png")!)
+                        .resizable()
+                    }
+                .frame(width: 400, height: 600)
+            }
+}
